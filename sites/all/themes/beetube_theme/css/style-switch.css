@@ -1,0 +1,24 @@
+#style-switch { background:#222222; width:90px; display:block; position:fixed; left:0; top: 246px; z-index:9995; font-size:13px;}
+#style-switch .title-ss { 
+background: none repeat scroll 0 0 #222222;
+    color: #fff;
+    font-size: 15px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+
+ }
+#style-switch .box-ss { line-height:0px; height:10px;  text-align:center; color:#222222; }
+#t-row-left-ss{ width:40px; height:40px; display:block; position:fixed; left:107px; top: 246px; z-index:9995; }
+.switcher-blue{background:#ffffff url("images/switcher.png") no-repeat center center;}
+.switcher-blue:hover, .yabru{background:#ffffff url("images/switcher-hover.png") no-repeat center center;}
+#t-row-left-ss:hover{ cursor:pointer;}
+
+.skin-colors{padding-left:0px;}
+.skin-colors ul li{margin:10px auto;width:50px;height:52px}
+.skin-colors ul li span:hover{border:1px solid #fff}
+.color-square{display:block;width:20px;height:20px;}
+
+@media only screen and (max-width: 767px) { 
+#style-switch, #t-row-left-ss  { display:none; visibility:hidden }
+}

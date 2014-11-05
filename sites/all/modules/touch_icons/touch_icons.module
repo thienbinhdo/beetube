@@ -1,0 +1,91 @@
+<?php
+
+/**
+ * @file
+ *
+ * Adds a fieldset to theme settings form which allows site administrators to
+ * specify Apple Touch icons for Drupal websites. The Touch icon settings behave
+ * in a similar manner to the Site Logo and Favicon settings provided by Drupal
+ * core.
+ *
+ * Also provides a simple means for theme developers to provide default Touch
+ * icons with their theme.
+ *
+ * @todo implement hook_help().
+ * @todo harmonise variable names with D6 version, hook_update() if needs be
+ */
+
+/**
+ * Implements hook_hook_info().
+ */
+function touch_icons_hook_info() {
+
+  $hooks['form_system_theme_settings_alter'] = array(
+    'group' => 'admin',
+  );
+
+  return $hooks;
+}
+
+/**
+ * Implement MODULENAME_preprocess_html().
+ *
+ * @todo review http://api.drupal.org/api/function/drupal_add_html_head/7
+ *   shall we specify a $key as second argument?
+ */
+function touch_icons_preprocess_html(&$vars) {
+  // If no key is given, use the current theme if we can determine it.
+  $theme = !empty($GLOBALS['theme_key']) ? $GLOBALS['theme_key'] : '';
+  if ($theme) {
+    $themes = list_themes();
+    $theme_object = $themes[$theme];
+  }
+
+  // build apple-touch-icon URL
+  $url_plain = '';
+  if (theme_get_setting('toggle_touch_icon_plain')) {  // include icon link
+      if (theme_get_setting('default_touch_icon_plain')) { // use default icon from theme or module
+        if (file_exists($touch_icon = dirname($theme_object->filename) . '/apple-touch-icon.png')) { // theme provides a default icon
+          $url_plain = file_create_url($touch_icon);
+        }
+        else { // fallback to module-provided default icon
+          $url_plain = file_create_url(drupal_get_path('module', 'touch_icons') . '/apple-touch-icon.png');
+        }
+      }
+      elseif (theme_get_setting('touch_icon_path_plain')) { // custom icon
+        $url_plain = file_create_url(theme_get_setting('touch_icon_path_plain'));
+      }
+  }
+
+  // build apple-touch-icon URL
+  $url_precomp = '';
+  if (theme_get_setting('toggle_touch_icon_precomp')) {  // include icon link
+      if (theme_get_setting('default_touch_icon_precomp')) { // use default icon from theme or module
+        if (file_exists($touch_icon = dirname($theme_object->filename) . '/apple-touch-icon-precomposed.png')) { // theme provides a default icon
+          $url_precomp = file_create_url($touch_icon);
+        }
+        else { // fallback to module-provided default icon
+          $url_precomp = file_create_url(drupal_get_path('module', 'touch_icons') . '/apple-touch-icon-precomposed.png');
+        }
+      }
+      elseif (theme_get_setting('touch_icon_path_precomp')) { // custom icon
+        $url_precomp = file_create_url(theme_get_setting('touch_icon_path_precomp'));
+      }
+  }
+
+  // output links
+  if (check_url($url_plain)) { // no output if $url_plain = ''
+    drupal_add_html_head_link(array(
+      'rel'  => 'apple-touch-icon',
+      'href' => $url_plain,
+      'type' => file_get_mimetype($url_plain),
+    ));
+  }
+  if (check_url($url_precomp)) { // no output if $url_precomp = ''
+    drupal_add_html_head_link(array(
+      'rel'  => 'apple-touch-icon-precomposed',
+      'href' => $url_precomp,
+      'type' => file_get_mimetype($url_precomp),
+    ));
+  }
+}
