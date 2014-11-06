@@ -171,8 +171,7 @@
     	</div>
 	    <div id="sidebar">
 			<?php print render($page['sidebar_second']); ?>
-	    	</div> 
-	    </div>
+	    </div> 
     </div>
 </div> <!-- .main-container -->
 
