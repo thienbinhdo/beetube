@@ -159,32 +159,18 @@
 	       <ul class="action-links"><?php print render($action_links); ?></ul>
 	    <?php endif; ?>
 
-	  
-
 	    <div id="content">
-	    <div class="loop-content-m">
-			<?php print render($page['content']); ?>
-			<?php //print views_embed_view('categorys','page'); ?>
-	   	</div>
-	    	<div class="single-banner">
-				<?php
-					$block =block_load('block',11);
-					$output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
-					print $output;
-				?>	
-			</div>
+		    <div class="loop-content-m">
+				<?php print render($page['content']); ?>
+		   	</div>
     	</div>
 	    <div id="sidebar">
 	       		<?php print render($page['sidebar_second']); ?>
-	    	<!-- <div class="widget widget_categories">
-	    		<div class="widget-header"><h3 class="widget-title">Categories</h3></div>
-	    		<?php //print drupal_render(menu_tree('menu-second-menu-nav')); ?>
-	    	</div> -->
 	    </div>
     </div>
 </div> <!-- .main-container -->
 
-<footer id="footer">
-  <?php print render($page['footer']); ?>
+<footer id="footer"> 
+	<?php print render($page['footer']); ?>
 </footer> <!-- end footer -->
 
