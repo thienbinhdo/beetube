@@ -473,5 +473,9 @@ $().iTopPage();
 		  $('div.video-url').fadeIn('slow');		  
 	   });
 
+		$(".sortby").click(function () {
+	    	$('.form-control').toggle('slide');
+	 	});
+
 
 }(jQuery));

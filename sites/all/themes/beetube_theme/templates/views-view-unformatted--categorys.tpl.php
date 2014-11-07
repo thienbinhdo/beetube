@@ -7,11 +7,13 @@
  * @ingroup views_templates
  */
 ?>
-
 <div class="loop-content switchable-view grid-mini">
 <div class="loop-header">
 	<h1 class="loop-title">
-		<span class="loop-subtitle">Animals</span>
+		<span class="prefix">Category</span>
+		<?php if (!empty($title)):dpm($title)?>
+		  <span class="loop-subtitle"> <?php print $title; ?></span>
+		<?php endif; ?>
 	</h1>
 </div>
 <div class="nag cf">

@@ -73,6 +73,7 @@
  * @ingroup themeable
  */
 ?>
+
 <header id="header" role="banner" >
 	<?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
 		<div id="top-nav">
@@ -138,7 +139,6 @@
 	    </aside>
 	<?php endif; ?>
 </div> <!-- .cat-featured -->
-
 <div id="main" class="main-container container">   
     <div class="wrap cf">
 	    <?php if (!empty($page['sidebar_first'])): ?>

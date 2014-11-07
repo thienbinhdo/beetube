@@ -18,7 +18,4 @@
 			<div class="item cf item-video"><?php print $row; ?></div>
 		<?php endforeach; ?>
 	</div>
-	<div class="view-all">
-		<a class="more-link" href="http://beetube.me/category/hd/"><span>View All </span></a>
-	</div>
 </div>
