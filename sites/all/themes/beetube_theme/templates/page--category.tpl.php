@@ -138,7 +138,6 @@
 	    </aside>
 	<?php endif; ?>
 </div> <!-- .cat-featured -->
-
 <div id="main" class="main-container container">   
     <div class="wrap cf">
 	    <?php if (!empty($page['sidebar_first'])): ?>

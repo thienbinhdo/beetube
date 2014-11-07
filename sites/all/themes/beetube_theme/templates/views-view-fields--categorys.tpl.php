@@ -37,7 +37,7 @@ $path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/node/'. $row->nid;
   	<div class="hori-like">
 		<p class="stats">
 			<span class="jtheme-post-likes likes">
-			<i class="count"><?php print $fields['count']->content; ?></i>
+				<i class="count"><?php print $fields['count']->content; ?></i>
 			</span>
 		</p>
 	</div>

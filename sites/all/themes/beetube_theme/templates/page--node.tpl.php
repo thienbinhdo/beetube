@@ -158,16 +158,9 @@
 	    <?php if (!empty($action_links)): ?>
 	       <ul class="action-links"><?php print render($action_links); ?></ul>
 	    <?php endif; ?>
-	    
+
 	    <div id="content">
 	    	<?php print render($page['content']); ?>
-			<div class="single-banner">
-				<?php
-					$block =block_load('block',11);
-					$output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
-					print $output;
-				?>	
-			</div>
     	</div>
 	    <div id="sidebar">
 			<?php print render($page['sidebar_second']); ?>
