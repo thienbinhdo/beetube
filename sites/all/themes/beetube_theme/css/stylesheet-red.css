@@ -4637,3 +4637,25 @@ background-image: url(http://passets.pinterest.com/images/pidgets/pinit_bg_en_re
 #block-block-13 p{
 	float: left;
 }
+.form-item-sort-by label {
+	border: 1px solid #e1e1e1;
+	padding: 12px;
+	padding-top: 5px;
+	padding-bottom: 6px;
+	border-right: none;
+	font-size: 13px;
+	color: #bbbbbb;
+	text-shadow: none;
+	border-radius: 3px 0px 0px 3px;
+	background: #f1f1f1;
+}
+
+.form-item-sort-order label {
+	display: none;
+}
+.loop-actions .order {
+	display: none;
+}
+.form-control {
+	width: 80% !important;
+}
