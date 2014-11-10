@@ -250,6 +250,7 @@ function flag_update_page($flag) {
  * @param $flag
  *   The flag object passed by reference.
  */
+
 function flag_update_export(&$flag) {
   // Set the API version to 1 by default: version 1 did not explicitly define
   // the API version.

@@ -79,30 +79,108 @@
  *
  * @ingroup themeable
  */
+$account = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/user/'. $node->name;
+$counter_view = explode(' reads',$content['links']['statistics']['#links']['statistics_counter']['title']);
 ?>
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
+<div id="node-<?php print $node->nid; ?>" class="single-post <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
-    <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <h2 <?php print $title_attributes; ?>>
+    	<a href="<?php print $node_url; ?>"><?php print $title; ?></a>
+    </h2>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
-  <div class="content"<?php print $content_attributes; ?>>
-    <?php print render($content); ?>
-    <?php if ($display_submitted): ?>
-      <div class="submitted">
-        <?php print $submitted; ?>
-      </div>
-    <?php endif; ?>
-    <?php print render($content['comment_count']); ?>
-  </div>;
-
-  <?php print render($content['links']);?>
-   <?php print render($content['comments']); ?>
-   <?php //dpm($node); ?>
-
- <?php print $node->comment; ?>
-  
+	<div class="content type-post"<?php print $content_attributes; ?>>
+		<div class="video">
+			<?php print render($content['field_media_link_video']); ?>
+		</div><!-- end .video -->
+		<div class="clear"></div>
+		<div class="entry-header cf">
+			<div class="inner cf">
+				<h1 class="entry-title"><?php print render($content['field_subtitle']); ?></h1>
+				<div class="entry-meta">
+					<?php if ($display_submitted): ?>
+				        <span class="author">
+				        	<a href="<?php print $account ?>" title="Posts by admin" rel="author"><?php print $node->name; ?></a>
+				        </span><!-- author --> 
+			 			<span class="time"><?php echo date("jS M , Y", $node->created); ?></span>
+			        	<span class="stats">
+			        		<span class="views"><?php print $counter_view[0]; ?></span>
+			        		<span class="comments">
+			        			<i class="count"><?php print $node->comment_count; ?> </i>
+			        		</span>
+			        		<span class="jtheme-post-likes likes"><?php print ($status); ?>	</span>
+			        	</span> 
+		        	<?php endif; ?>  
+		      	</div>
+		      	<div class="entry-actions">
+		      		<span class="jtheme-like-post">
+		      			<?php if(!empty($content['links']))
+		      				unset($content['links']['statistics']['#links']['statistics_counter']['title']);/*hide total view*/
+		      				print render($content['links']);
+		      			?>
+		      		</span>
+		      	</div>
+		      	<div id="social-share">
+			      	<div class="social-share">
+			      		<?php
+							$block =block_load('block',6);
+							$output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
+							print $output;
+						?>
+			      	</div>
+			      	<div class="social-share">
+			      		<?php
+							$block =block_load('block',7);
+							$output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
+							print $output;
+						?>
+			      	</div>
+			      	<div class="social-share">
+			      		<?php
+							$block =block_load('block',8);
+							$output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
+							print $output;
+						?>
+			      	</div>
+			      	<div class="social-share">
+			      		<?php
+							$block =block_load('block',9);
+							$output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
+							print $output;
+						?>
+			      	</div>
+		      	</div>	
+			</div><!-- end .inner cf -->
+		</div>
+		<div id="details" class="section-box">
+			<div class="section-content">
+				<div id="info" class="more-less" data-less-height="100" style="height: 100px;">
+					<div class="entry-content rich-content">
+						<?php print render($content['body']); ?>
+					</div>
+					<div id="extras">
+						<div>
+							<h4>Category:</h4>
+							<?php print render($content['field_category']); ?>
+						</div>
+						<div>
+							<h4>Tags:</h4>
+							<?php print render($content['field_tags']); ?>
+						</div>			
+					</div>
+				</div><!-- end #info -->
+			</div> <!-- end .section-content -->
+			<div class="info-toggle">
+				<a href="#" class="info-toggle-button">
+					<span class="more-text">Show less</span> 
+					<span class="less-text">Show more</span>
+				</a>
+			</div> <!-- end .info-toogle-->
+		</div> <!-- #details -->
+	    <?php //print render($comment); dpm($comment); ?>
+	</div>
 </div>
