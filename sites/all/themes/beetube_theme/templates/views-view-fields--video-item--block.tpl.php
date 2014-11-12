@@ -23,10 +23,10 @@
  *
  * @ingroup views_templates
  */
-$path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/node/'. $row->nid;
+$url = 'http://'.$_SERVER['SERVER_NAME'].$fields['path']->content;
 ?>
 <div class="thumb">
-	<a class="clip-link" title="Video From Vimeo" href="<?php print $path ?>">
+	<a class="clip-link" title="Video From Vimeo" href="<?php print $url ?>">
 		<span class="clip">
 			<?php print $fields['field_image']->content; ?>
 			<span class="vertical-align"></span>
@@ -35,7 +35,7 @@ $path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/node/'. $row->nid;
 	</a>
 </div>
 <div class="hori-title">
-	<a href="<?php print $path ?>">
+	<a href="<?php print $url ?>">
 		<?php print $fields['field_subtitle']->content; ?>
 	</a>
 </div>

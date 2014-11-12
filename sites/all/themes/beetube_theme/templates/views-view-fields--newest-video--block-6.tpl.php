@@ -24,10 +24,10 @@
  * @ingroup views_templates
  */
 /*$path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/'.'self-hosted';*/
-$path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/node/'. $row->nid;
+$url = 'http://'.$_SERVER['SERVER_NAME'].$fields['path']->content;
 ?>
 <div class="thumb">
-  	<a class="clip-lin" href="<?php print $path; ?>">
+  	<a class="clip-lin" href="<?php print $url ?>">
 		<span class="clip">
 	      <?php print $fields['field_image']->content; ?></span>
 	      <span class="vertical-align"></span>

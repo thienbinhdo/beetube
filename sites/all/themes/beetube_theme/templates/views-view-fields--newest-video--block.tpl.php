@@ -24,7 +24,7 @@
  * @ingroup views_templates
  */
 /*$path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/'.'self-hosted';*/
-$path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/node/'. $row->nid;
+$url = 'http://'.$_SERVER['SERVER_NAME'].$fields['path']->content;
 $account = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/user/'. $row->node_comment_statistics_last_comment_uid;
 /*global $user->uid;
 dpm($user);*/
@@ -38,7 +38,7 @@ dpm($user);*/
 		<div class="section-content list-large">
 			<div class="nag cf item item-video">
 				<div class="thumb">
-				  	<a class="clip-link" href="<?php print $path; ?>">
+				  	<a class="clip-link" href="<?php print $url; ?>">
 						<span class="clip">
 					      <?php print $fields['field_image']->content; ?>
 					      <span class="vertical-align"></span>
