@@ -1,0 +1,17 @@
+name = views_feature
+core = 7.x
+package = Features
+dependencies[] = better_exposed_filters
+dependencies[] = ds
+dependencies[] = jcarousel
+dependencies[] = views
+dependencies[] = views_slideshow
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = categorys
+features[views_view][] = content_views
+features[views_view][] = newest_video
+features[views_view][] = shortcut_views_footer
+features[views_view][] = slieshow_footer
+features[views_view][] = tags
+features[views_view][] = video_item
