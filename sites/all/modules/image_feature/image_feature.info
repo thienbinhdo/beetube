@@ -1,0 +1,10 @@
+name = image_feature
+core = 7.x
+package = Features
+dependencies[] = image
+dependencies[] = media
+features[features_api][] = api:2
+features[image][] = thumbai__345_x_195_
+features[image][] = thumbail_300_x_168_
+features[image][] = thumbail_360x_200_
+features[image][] = thumbail__870_x_489_

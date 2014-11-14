@@ -1,0 +1,7 @@
+name = block_custom_feature
+description = block_custom
+core = 7.x
+package = Features
+dependencies[] = blockexport
+features[blockexport_settings][] = block_settings
+features[features_api][] = api:2

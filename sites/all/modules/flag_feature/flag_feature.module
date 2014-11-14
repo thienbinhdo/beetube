@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the flag_feature feature.
+ */
+
+include_once 'flag_feature.features.inc';
