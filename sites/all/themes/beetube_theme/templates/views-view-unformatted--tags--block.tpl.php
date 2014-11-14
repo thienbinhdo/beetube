@@ -7,11 +7,10 @@
  * @ingroup views_templates
  */
 ?>
-<div class="widget widget_tag_cloud">
+
 
   <h3 class="widget-title"><?php print $view->query->pager->display->display_options['block_description'] ;?></h3>
 
 <?php foreach ($rows as $id => $row): ?>
     <?php print $row; ?>
 <?php endforeach; ?>
-</div>

@@ -38,7 +38,7 @@ dpm($user);*/
 		<div class="section-content list-large">
 			<div class="nag cf item item-video">
 				<div class="thumb">
-				  	<a class="clip-link" href="<?php print $url; ?>">
+				  	<a class="clip-link" href="<?php print $url ?>">
 						<span class="clip">
 					      <?php print $fields['field_image']->content; ?>
 					      <span class="vertical-align"></span>
