@@ -4663,3 +4663,17 @@ background-image: url(http://passets.pinterest.com/images/pidgets/pinit_bg_en_re
 .footbar-c4 .entry-header, .footbar-c4 .info-toggle {
 	display: none;
 }
+.entry-actions li.comment-add {
+	display: none;
+}
+#block-views-categorys-block-1 {
+	padding-top: 40px;
+	padding-bottom: 0;
+}
+/*menu-nav*/
+#main-nav select#superfish-1-select {
+	display: none;
+}
+#superfish-1 {
+	display: block !important;
+}
