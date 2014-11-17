@@ -11,9 +11,7 @@
 	<div class="loop-header">
 		<h1 class="loop-title">
 			<span class="prefix">Category</span>
-			<?php if (!empty($title)):dpm($title)?>
-			  <span class="loop-subtitle"> <?php print $title; ?></span>
-			<?php endif; ?>
+			<span class="loop-subtitle"> <?php print $view->query->pager->display->display_options['menu']['title']; ?></span>
 		</h1>
 	</div>
 	<div class="nag cf">

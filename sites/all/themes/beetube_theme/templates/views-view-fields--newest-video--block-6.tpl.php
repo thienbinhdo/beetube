@@ -38,7 +38,7 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$fields['path']->content;
 <div class="data">
 	<h2 class="entry-title"><a href="#"><?php print $fields['field_subtitle']->content; ?></a></h2>
 	<p class="entry-meta">
-		<time class="entry-date"><?php print $fields['created']->content; ?></time>
+		<span class="entry-date"><?php print $fields['created']->content; ?></span>
 		<span class="stats">
 			<span class="views">
 				<i class="count"><?php print $fields['totalcount']->content; ?></i> 

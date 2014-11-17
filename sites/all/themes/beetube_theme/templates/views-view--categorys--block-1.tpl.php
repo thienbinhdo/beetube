@@ -38,30 +38,12 @@
       <?php print $header; ?>
     </div>
   <?php endif; ?>
-  <div id="content">
-        <div class="loop-actions cf">
-          <?php if ($exposed): ?>
-            <div class="sort">
-              <?php print $exposed; ?>
-            </div>
-          <?php endif; ?>
-          <div class="topbanner">
-            <?php
-            $block =block_load('block',12);
-            $output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
-            print $output;
-          ?>
-          </div>
-          <div class="view">
-            <?php
-              $block =block_load('block',13);
-              $output = drupal_render(_block_get_renderable_array(_block_render_blocks(array($block))));
-              print $output;
-            ?>
-          </div>
-        </div>
-      </div>
-  
+
+  <?php if ($exposed): ?>
+    <div class="view-filters">
+      <?php print $exposed; ?>
+    </div>
+  <?php endif; ?>
 
   <?php if ($attachment_before): ?>
     <div class="attachment attachment-before">

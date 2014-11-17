@@ -81,8 +81,17 @@
  */
 $account = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/user/'. $node->name;
 $counter_view = explode(' reads',$content['links']['statistics']['#links']['statistics_counter']['title']);
+$like = 0;
+if($node->type == 'article') {
+	$node_id = $node->nid;
+	$like = flag_get_counts('node',$node_id,$reset = FALSE);
+	$like = $like['like'];
+	if($like == null)
+		$like = 0;
+	else
+		$like = $like['like'];
+}
 ?>
-
 <div id="node-<?php print $node->nid; ?>" class="single-post <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print $user_picture; ?>
   <?php print render($title_prefix); ?>
@@ -112,7 +121,7 @@ $counter_view = explode(' reads',$content['links']['statistics']['#links']['stat
 			        		<span class="comments">
 			        			<i class="count"><?php print $node->comment_count; ?> </i>
 			        		</span>
-			        		<span class="jtheme-post-likes likes"><?php print ($status); ?>	</span>
+			        		<span class="jtheme-post-likes likes"><?php print $like; ?></span>
 			        	</span> 
 		        	<?php endif; ?>  
 		      	</div>

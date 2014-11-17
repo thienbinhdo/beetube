@@ -23,7 +23,6 @@
  *
  * @ingroup views_templates
  */
-/*$path = 'http://'.$_SERVER['SERVER_NAME'].'/'.'beetube'.'/'.'self-hosted';*/
 $url = 'http://'.$_SERVER['SERVER_NAME'].$fields['path']->content;
 
 ?>
